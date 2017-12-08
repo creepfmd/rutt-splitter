@@ -1,0 +1,4 @@
+webmq:
+  image: creep/action-scripter
+  ports:
+    - 8081
