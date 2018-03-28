@@ -4,11 +4,11 @@ var getRawBody = require('raw-body')
 var dcopy = require('deep-copy')
 var app = express()
 
-function split(body, path) {
-  var elements = jsonpath.query(body, path);
+function split (body, path) {
+  var elements = jsonpath.query(body, path)
   var messagesToReturn = []
-  
-  if (Array.isArray(elements[0])){
+
+  if (Array.isArray(elements[0])) {
     elements[0].forEach(function (item, i, arr) {
       var dummy = dcopy(body)
       jsonpath.apply(dummy, path, function (value) {
@@ -16,10 +16,10 @@ function split(body, path) {
       })
       messagesToReturn.push(dcopy(dummy))
     })
-    
+
     return messagesToReturn
   }
-  
+
   return body
 }
 
